@@ -1,2 +1,3 @@
-%th.role{ :style => 'width: 120px;' }
-  = t('required_role')
+- if designer? or admin?
+  %th.role{ :style => 'width: 120px;' }
+    = t('required_role')
