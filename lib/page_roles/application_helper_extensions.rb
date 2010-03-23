@@ -16,8 +16,8 @@ module PageRoles::ApplicationHelperExtensions
       def available_roles(page)
         role = page.parent ? page.parent.required_role : ''
         case 
+          # Prevents a page from having a "lower" role than its parent. This would just cause confusion.
           when role == 'admin' && admin? : [[t('select.inherit'), ''], [t('admin'),'admin']]
-          # when role == 'designer' && admin? : [[t('select.inherit'), ''], [t('designer'),'designer'], [t('admin'),'admin']]
           when designer? && !admin? : [[t('select.inherit'), ''], [t('designer'),'designer']]
           when admin? : [[t('select.inherit'), ''], [t('designer'),'designer'], [t('admin'),'admin']]
         else
