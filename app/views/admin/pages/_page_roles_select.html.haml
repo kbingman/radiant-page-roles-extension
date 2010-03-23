@@ -1,4 +1,4 @@
 - if admin? or designer?
   %p
     = f.label :role, t('required_role')
-    = f.select :role, available_roles(@page.parent.required_role)
+    = f.select :role, available_roles(@page)

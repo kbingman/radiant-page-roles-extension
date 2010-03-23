@@ -13,7 +13,8 @@ module PageRoles::ApplicationHelperExtensions
         end
       end
       
-      def available_roles(role)
+      def available_roles(page)
+        role = page.parent ? page.parent.required_role : ''
         case 
           when role == 'admin' && admin? : [[t('select.inherit'), ''], [t('admin'),'admin']]
           # when role == 'designer' && admin? : [[t('select.inherit'), ''], [t('designer'),'designer'], [t('admin'),'admin']]
