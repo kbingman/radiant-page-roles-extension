@@ -1,6 +1,3 @@
-# Uncomment this if you reference any of your controllers in activate
-# require_dependency 'application_controller'
-
 class PageRolesExtension < Radiant::Extension
   version "1.0"
   description "Describe your extension here"
@@ -29,9 +26,9 @@ class PageRolesExtension < Radiant::Extension
     admin.page.index.add :sitemap_head, 'admin/pages/roles_th', :after => 'status_column_header'
     admin.page.index.add :node, 'admin/pages/roles_td', :after => 'status_column'
     
-    add_tab 'Settings' do
-      add_item 'Page Roles', '/admin/page_roles'
-    end
+    # add_tab 'Settings' do
+    #   add_item 'Page Roles', '/admin/page_roles'
+    # end
   end
   
 end

@@ -8,7 +8,7 @@ module PageRoles::PageExtensions
   
   def required_role
     if self.role.blank?
-      role = !self.parent_id.nil? && !self.parent.role.blank?  ? self.parent.role : 'all' 
+      role = !self.parent_id.nil? && self.parent.required_role  ? self.parent.required_role : 'all' 
     else
       self.role
     end

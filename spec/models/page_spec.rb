@@ -27,4 +27,14 @@ describe Page, 'validations' do
     @page.required_role.should == 'administrator'
   end
   
+  it 'should show the grandparents role if the page and its parent has no role assigned' do
+    grandparent = pages(:home)
+    parent = Page.new(page_params)
+    parent.parent = grandparent
+    grandparent.role = 'designer'
+    @page.parent = parent
+    @page.role = ''
+    @page.required_role.should == 'designer'
+  end
+  
 end
